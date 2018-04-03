@@ -1,1 +1,189 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* General Page Styles */
+
+.header #la-logo {
+  margin: 20px 0px;
+}
+
+h1 {
+  margin-bottom: 1em;
+  display: inline-block;
+}
+
+h1 span {
+  margin-top: .2em;
+  color: #666;
+  font-size: 0.5em;
+  font-weight: 400;
+  display: block;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.jumbotron p {
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#message-heading{
+    display: inline-block;
+}
+
+
+/* Form Element Styles */
+
+.form-control {
+  border: 1px solid #959595;
+  height: 2.5em;
+}
+
+.form-control[type="tel"] {
+  width: 340px;
+}
+
+label {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #3770A2;
+}
+
+.alert {
+  margin-top: 10px;
+}
+
+textarea.form-control {
+  height: 150px;
+}
+
+#like-container{
+    margin-top: 34px;
+    display: inline-block;
+    float: right;
+    border: 1px solid #eee;
+    padding: 3px 12px 3px 4px;
+    border-radius: 4px;
+}
+
+.required {
+    color: #a94442;
+}
+
+/* Form Error Styles */
+
+
+.has-error input,
+.has-error textarea{
+  border-top-left-radius: 0px;
+}
+
+.has-error span.error {
+  background-color: #aa4646;
+  border: 1px solid #a94442;
+  color: #fff;
+  padding: .6em 1em .4em;
+  font-size: .85em;
+  display: block;
+  width: 98%;
+  font-style: normal;
+}
+
+.has-error span.error:last-child {
+  border-radius: 0 0 0 0;
+}
+
+.has-error span.error:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.phone-number-container span.error{
+    width: 328px;
+}
+
+#error-heading {
+  display: none;
+  color: #FFFFFF;
+  background-color: #a94442;
+  border: 1px solid #a94442;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-bottom: 0px;
+}
+
+#error-heading span {
+  padding: .6em 0.8em;
+  font-size: 16px;
+  line-height: 2em;
+}
+
+#error-heading img {
+  vertical-align: baseline;
+}
+
+#error-heading.has-error,
+.error-list.has-error{
+  display: block;
+}
+
+
+.error-list {
+  display: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #a94442;
+  background-color: #FFFFFF;
+  padding: 10px 48px;
+}
+
+.error-list li {
+  padding: 2px 0px;
+}
+
+.error-list li a {
+  padding: 4px;
+  color: #a94442;
+  text-decoration: underline;
+}
+
+.error-list li a:hover, .error-list li a:focus {
+  text-decoration: none;
+}
+
+
+/* Responsive Layout Adjustments */
+
+@media (min-width: 48em) {
+  .container {
+    max-width: 48em;
+    width: 48em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
