@@ -1,0 +1,87 @@
+<div class="jumbotron" *ngIf="showMessage">
+  <h2 id="message-heading" #messageHeading tabindex="-1">Thank you!</h2>
+  <p>Your message was sent.</p>
+</div>
+
+<div class="jumbotron" *ngIf="!showMessage">
+  <h2>Contact Us</h2>
+  <p class="required-msg">All fields marked with <span aria-hidden="true" class="required">*</span><span class="sr-only">Required, </span> are required. </p>
+
+  <div id="error-bucket" class="error-notice">
+    <h3 id="error-heading" #errorHeading tabindex="-1">
+      <span><img src="assets/images/error.png" alt=""> Oops, something went wrong, please review errors below.</span>
+    </h3>
+    <ul id="error-list" class="error-list">
+        <li *ngIf="complexForm.controls['firstName'].hasError('required')">
+          <a href="#firstName">You must include a First Name</a>
+        </li>
+        <li *ngIf="complexForm.controls['lastName'].hasError('required')">
+          <a href="#lastName">You must include a Last Name</a>
+        </li>
+        <li *ngIf="complexForm.controls['phoneNumber'].hasError('required')">
+          <a href="#phoneNumber">You must include a Phone Number</a>
+        </li>
+        <li *ngIf="complexForm.controls['phoneNumber'].hasError('minlength')">
+          <a href="#phoneNumber">Your Phone Number must be at least 7 characters long</a>
+        </li>
+        <li *ngIf="complexForm.controls['phoneNumber'].hasError('pattern')">
+          <a href="#phoneNumber">Your Phone Number must be a valid format</a>
+        </li>
+        <li *ngIf="complexForm.controls['message'].hasError('required')">
+          <a href="#message">You must include a Message</a>
+        </li>
+      </ul>
+  </div>
+
+  <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+    <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['firstName'].valid && submitted}">
+      <label for="firstName">
+        <span aria-hidden="true" class="required">*</span>
+        <span class="sr-only">Required, </span>
+        First Name:
+        <span class="errors">
+            <span *ngIf="complexForm.controls['firstName'].hasError('required') && submitted" class="error">must not be empty</span>
+        </span>
+      </label>
+      <input id="firstName" class="form-control" type="text" [formControl]="complexForm.controls['firstName']">
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['lastName'].valid && submitted}">
+      <label for="lastName">
+          <span aria-hidden="true" class="required">*</span>
+          <span class="sr-only">Required, </span>
+          Last Name:
+          <span class="errors">
+              <span *ngIf="complexForm.controls['lastName'].hasError('required') && submitted" class="error">must not be empty</span>
+          </span>
+      </label>
+      <input id="lastName" class="form-control" type="text" [formControl]="complexForm.controls['lastName']">
+    </div>
+    <div class="form-group phone-number-container" [ngClass]="{'has-error':!complexForm.controls['phoneNumber'].valid && submitted}">
+      <label for="phoneNumber">
+          <span aria-hidden="true" class="required">*</span>
+          <span class="sr-only">Required, </span>
+          Phone Number:
+          <span class="errors">
+              <span *ngIf="complexForm.controls['phoneNumber'].hasError('required') && submitted" class="error">must not be empty</span>
+              <span *ngIf="complexForm.controls['phoneNumber'].hasError('minlength') && submitted" class="error">Your phone number must be at least 7 numbers long.</span>
+              <span *ngIf="complexForm.controls['phoneNumber'].hasError('pattern') && submitted" class="error">Your phone number must be a valid format.</span>
+          </span>
+      </label>
+      <input id="phoneNumber" class="form-control" type="tel" [formControl]="complexForm.controls['phoneNumber']">
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['message'].valid && submitted}">
+      <label for="message">
+          <span aria-hidden="true" class="required">*</span>
+          <span class="sr-only">Required, </span>
+          Message:
+          <span class="errors">
+              <span *ngIf="complexForm.controls['message'].hasError('required') && submitted" class="error">must not be empty</span>
+          </span>
+      </label>
+      <textarea id="message" class="form-control" [formControl]="complexForm.controls['message']"></textarea>
+    </div>
+    <div class="form-group">
+      <button id="formSubmit"  type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
