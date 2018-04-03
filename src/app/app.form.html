@@ -11,7 +11,7 @@
     <h3 id="error-heading" #errorHeading tabindex="-1">
       <span><img src="assets/images/error.png" alt=""> Oops, something went wrong, please review errors below.</span>
     </h3>
-    <ul id="error-list" class="error-list">
+    <ul id="error-list" #errorList class="error-list">
         <li *ngIf="complexForm.controls['firstName'].hasError('required')">
           <a href="#firstName">You must include a First Name</a>
         </li>
