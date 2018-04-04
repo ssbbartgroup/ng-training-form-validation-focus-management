@@ -9,26 +9,26 @@
 
   <div id="error-bucket" class="error-notice">
     <h3 id="error-heading" #errorHeading tabindex="-1" [class.has-error]="hasError">
-      <span><img src="assets/images/error.png" alt=""> Oops, something went wrong, please review errors below.</span>
+      <span><img src="assets/images/error.png" alt="error"> Oops, something went wrong, please review errors below.</span>
     </h3>
     <ul id="error-list" #errorList [ngClass]="{'error-list': true, 'has-error': hasError}">
         <li *ngIf="complexForm.controls['firstName'].hasError('required')">
-          <a href="#firstName">You must include a First Name</a>
+          <a href="#firstName">Error: You must include a First Name</a>
         </li>
         <li *ngIf="complexForm.controls['lastName'].hasError('required')">
-          <a href="#lastName">You must include a Last Name</a>
+          <a href="#lastName">Error: You must include a Last Name</a>
         </li>
         <li *ngIf="complexForm.controls['phoneNumber'].hasError('required')">
-          <a href="#phoneNumber">You must include a Phone Number</a>
+          <a href="#phoneNumber">Error: You must include a Phone Number</a>
         </li>
         <li *ngIf="complexForm.controls['phoneNumber'].hasError('minlength')">
-          <a href="#phoneNumber">Your Phone Number must be at least 7 characters long</a>
+          <a href="#phoneNumber">Error: Your Phone Number must be at least 7 characters long</a>
         </li>
         <li *ngIf="complexForm.controls['phoneNumber'].hasError('pattern')">
-          <a href="#phoneNumber">Your Phone Number must be a valid format</a>
+          <a href="#phoneNumber">Error: Your Phone Number must be a valid format</a>
         </li>
         <li *ngIf="complexForm.controls['message'].hasError('required')">
-          <a href="#message">You must include a Message</a>
+          <a href="#message">Error: You must include a Message</a>
         </li>
       </ul>
   </div>
@@ -40,7 +40,7 @@
         <span class="sr-only">Required, </span>
         First Name:
         <span class="errors">
-            <span *ngIf="complexForm.controls['firstName'].hasError('required') && submitted" class="error">must not be empty</span>
+            <span *ngIf="complexForm.controls['firstName'].hasError('required') && submitted" class="error">Error: The first name field must not be empty</span>
         </span>
       </label>
       <input id="firstName" class="form-control" type="text" [formControl]="complexForm.controls['firstName']">
@@ -51,7 +51,7 @@
           <span class="sr-only">Required, </span>
           Last Name:
           <span class="errors">
-              <span *ngIf="complexForm.controls['lastName'].hasError('required') && submitted" class="error">must not be empty</span>
+              <span *ngIf="complexForm.controls['lastName'].hasError('required') && submitted" class="error">Error: The last name field must not be empty</span>
           </span>
       </label>
       <input id="lastName" class="form-control" type="text" [formControl]="complexForm.controls['lastName']">
@@ -62,9 +62,9 @@
           <span class="sr-only">Required, </span>
           Phone Number:
           <span class="errors">
-              <span *ngIf="complexForm.controls['phoneNumber'].hasError('required') && submitted" class="error">must not be empty</span>
-              <span *ngIf="complexForm.controls['phoneNumber'].hasError('minlength') && submitted" class="error">Your phone number must be at least 7 numbers long.</span>
-              <span *ngIf="complexForm.controls['phoneNumber'].hasError('pattern') && submitted" class="error">Your phone number must be a valid format.</span>
+              <span *ngIf="complexForm.controls['phoneNumber'].hasError('required') && submitted" class="error">Error: The phone number field must not be empty</span>
+              <span *ngIf="complexForm.controls['phoneNumber'].hasError('minlength') && submitted" class="error">Error: Your phone number must be at least 7 numbers long.</span>
+              <span *ngIf="complexForm.controls['phoneNumber'].hasError('pattern') && submitted" class="error">Error: Your phone number must be a valid format.</span>
           </span>
       </label>
       <input id="phoneNumber" class="form-control" type="tel" [formControl]="complexForm.controls['phoneNumber']">
@@ -75,7 +75,7 @@
           <span class="sr-only">Required, </span>
           Message:
           <span class="errors">
-              <span *ngIf="complexForm.controls['message'].hasError('required') && submitted" class="error">must not be empty</span>
+              <span *ngIf="complexForm.controls['message'].hasError('required') && submitted" class="error">Error: The message fieldmust not be empty</span>
           </span>
       </label>
       <textarea id="message" class="form-control" [formControl]="complexForm.controls['message']"></textarea>
