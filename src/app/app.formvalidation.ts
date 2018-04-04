@@ -54,10 +54,9 @@ export class FormValidationComponent {
       this.titleService.setTitle('Submitted - ' + this.originalPageTitle);
       
       //Focus the success message
-      //TODO: refactor with a lifecycle method
       setTimeout(() => {
         this.messageHeading.nativeElement.focus();
-      }, 100);
+      }, 0);
 
     } else {
 
