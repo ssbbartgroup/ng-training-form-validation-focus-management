@@ -13,22 +13,22 @@
     </h3>
     <ul id="error-list" #errorList [ngClass]="{'error-list': true, 'has-error': hasError}">
         <li *ngIf="complexForm.controls['firstName'].hasError('required')">
-          <a href="#firstName">Error: You must include a First Name</a>
+          <a href="#firstName">You must include a First Name</a>
         </li>
         <li *ngIf="complexForm.controls['lastName'].hasError('required')">
-          <a href="#lastName">Error: You must include a Last Name</a>
+          <a href="#lastName">You must include a Last Name</a>
         </li>
         <li *ngIf="complexForm.controls['phoneNumber'].hasError('required')">
-          <a href="#phoneNumber">Error: You must include a Phone Number</a>
+          <a href="#phoneNumber">You must include a Phone Number</a>
         </li>
         <li *ngIf="complexForm.controls['phoneNumber'].hasError('minlength')">
-          <a href="#phoneNumber">Error: Your Phone Number must be at least 7 characters long</a>
+          <a href="#phoneNumber">Your Phone Number must be at least 7 characters long</a>
         </li>
         <li *ngIf="complexForm.controls['phoneNumber'].hasError('pattern')">
-          <a href="#phoneNumber">Error: Your Phone Number must be a valid format</a>
+          <a href="#phoneNumber">Your Phone Number must be a valid format</a>
         </li>
         <li *ngIf="complexForm.controls['message'].hasError('required')">
-          <a href="#message">Error: You must include a Message</a>
+          <a href="#message">You must include a Message</a>
         </li>
       </ul>
   </div>
