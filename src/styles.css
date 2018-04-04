@@ -82,6 +82,8 @@ textarea.form-control {
 
 /* Form Error Styles */
 
+.errorList{}
+.hasError{}
 
 .has-error input,
 .has-error textarea{

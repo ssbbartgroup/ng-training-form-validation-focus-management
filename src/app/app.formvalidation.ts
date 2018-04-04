@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-form-validation',
@@ -17,6 +18,7 @@ export class FormValidationComponent {
   @ViewChild('errorHeading') errorHeading:ElementRef;
   @ViewChild('messageHeading') messageHeading:ElementRef;
   @ViewChild('errorList') errorList:ElementRef;
+  
 
   constructor(fb: FormBuilder, titleService: Title) {
     this.showMessage = false;
@@ -44,24 +46,23 @@ export class FormValidationComponent {
     this.submitted = true;
 
     if (this.complexForm.valid) {
-  
-      //this.errorList.nativeElement.classList.remove('has-error');
-      //this.errorHeading.nativeElement.classList.remove('has-error');
+      
       this.showMessage = true;
       this.hasError = false;
 
       // Update page title to indicate the form was submitted
       this.titleService.setTitle('Submitted - ' + this.originalPageTitle);
-
+      
+      //Focus the success message
+      //TODO: refactor with a lifecycle method
       setTimeout(() => {
         this.messageHeading.nativeElement.focus();
       }, 100);
+
     } else {
 
       //Set the error state to true to use in class bindings
       this.hasError = true;
- 
-      this.errorList.nativeElement.classList.add('has-error');
       
       //Focus the error state heading
       this.errorHeading.nativeElement.focus();
@@ -70,4 +71,6 @@ export class FormValidationComponent {
       this.titleService.setTitle('Error - ' + this.originalPageTitle );
     }
   }
+
+
 }
