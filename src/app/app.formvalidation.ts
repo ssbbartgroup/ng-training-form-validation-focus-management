@@ -11,6 +11,7 @@ export class FormValidationComponent {
   complexForm: FormGroup;
   showMessage: boolean;
   submitted: boolean;
+  hasError: boolean;
   titleService: Title;
   originalPageTitle: String;
   @ViewChild('errorHeading') errorHeading:ElementRef;
@@ -20,6 +21,7 @@ export class FormValidationComponent {
   constructor(fb: FormBuilder, titleService: Title) {
     this.showMessage = false;
     this.submitted = false;
+   
 
     // Set title service to global so we can use it class
     this.titleService = titleService;
@@ -43,9 +45,10 @@ export class FormValidationComponent {
 
     if (this.complexForm.valid) {
   
-      this.errorList.nativeElement.classList.remove('has-error');
-      this.errorHeading.nativeElement.classList.remove('has-error');
+      //this.errorList.nativeElement.classList.remove('has-error');
+      //this.errorHeading.nativeElement.classList.remove('has-error');
       this.showMessage = true;
+      this.hasError = false;
 
       // Update page title to indicate the form was submitted
       this.titleService.setTitle('Submitted - ' + this.originalPageTitle);
@@ -54,10 +57,13 @@ export class FormValidationComponent {
         this.messageHeading.nativeElement.focus();
       }, 100);
     } else {
-      // If the form has errors then show global error message and set focus to it
-  
+
+      //Set the error state to true to use in class bindings
+      this.hasError = true;
+ 
       this.errorList.nativeElement.classList.add('has-error');
-      this.errorHeading.nativeElement.classList.add('has-error');
+      
+      //Focus the error state heading
       this.errorHeading.nativeElement.focus();
 
       // Update page title to indicate there are errors on the page

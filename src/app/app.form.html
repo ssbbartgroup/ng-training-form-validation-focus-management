@@ -8,7 +8,7 @@
   <p class="required-msg">All fields marked with <span aria-hidden="true" class="required">*</span><span class="sr-only">Required, </span> are required. </p>
 
   <div id="error-bucket" class="error-notice">
-    <h3 id="error-heading" #errorHeading tabindex="-1">
+    <h3 id="error-heading" #errorHeading tabindex="-1" [class.has-error]="hasError">
       <span><img src="assets/images/error.png" alt=""> Oops, something went wrong, please review errors below.</span>
     </h3>
     <ul id="error-list" #errorList class="error-list">
