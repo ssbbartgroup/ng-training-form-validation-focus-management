@@ -64,7 +64,9 @@ export class FormValidationComponent {
       this.hasError = true;
       
       //Focus the error state heading
-      this.errorHeading.nativeElement.focus();
+      setTimeout(() => {
+			  this.errorHeading.nativeElement.focus();
+      }, 0);
 
       // Update page title to indicate there are errors on the page
       this.titleService.setTitle('Error - ' + this.originalPageTitle );
